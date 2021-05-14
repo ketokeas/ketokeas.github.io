@@ -15,7 +15,7 @@ body {background: url(images/patterned_body.jpg) repeat;}
 #container {
     width: 960px;
     margin: 0 auto;
-    background: url(images/glow.jpg) top center no-repeat;
+    background: url(images/patterned_body.jpg) top center no-repeat;
     padding-top: 25px;
 }
 
