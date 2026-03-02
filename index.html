@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mariia Legenkaia — Personal Site</title>
+  <meta name="description" content="Mariia Legenkaia — PhD (ENS Paris), high-dimensional statistics, latent-factor models, Python/JAX." />
+
+  <style>
+    :root { --fg:#111; --muted:#555; --bg:#fff; --card:#f6f6f7; --link:#0b57d0; --border:#e5e5e7; }
+    @media (prefers-color-scheme: dark){
+      :root { --fg:#eee; --muted:#b8b8b8; --bg:#0b0c0f; --card:#151823; --link:#7aa2ff; --border:#24283a; }
+    }
+    body{
+      margin:0;
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+    }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{ max-width:900px; margin:0 auto; padding:40px 20px 64px; }
+
+    header{
+      display:flex;
+      gap:24px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .title{
+      flex: 1 1 520px;
+      min-width: 280px;
+    }
+    .title h1{ margin:0 0 6px; font-size:34px; letter-spacing:-0.02em; }
+    .title p{ margin:0; color:var(--muted); max-width:58ch; }
+
+    /* Put buttons + email under the header text */
+    .links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:16px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--card);
+    }
+
+    .email{
+      flex-basis:100%;
+      margin:8px 0 0 0;
+      color:var(--fg);
+    }
+
+    /* Portrait */
+    .portrait{
+      flex: 0 0 auto;
+    }
+    .portrait img{
+      width:220px;
+      height:220px;
+      object-fit:cover;
+      border-radius:20px;
+      border:1px solid var(--border);
+      box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:28px; }
+    @media (min-width:900px){ .grid{ grid-template-columns: 1.2fr 0.8fr; } }
+
+    .card{
+      border:1px solid var(--border);
+      background:var(--card);
+      border-radius:16px;
+      padding:16px 16px;
+    }
+
+    h2{ margin:0 0 10px; font-size:18px; letter-spacing:-0.01em; }
+
+    ul{ margin:8px 0 0 18px; padding:0; }
+
+    .proj{ margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
+    .proj:first-of-type{ margin-top:0; padding-top:0; border-top:none; }
+    .proj h3{ margin:0 0 4px; font-size:16px; }
+    .proj p{ margin:0 0 6px; color:var(--muted); }
+
+    .meta{ color:var(--muted); font-size:14px; }
+
+    footer{ margin-top:34px; color:var(--muted); font-size:14px; }
+
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(127,127,127,.12);
+      border:1px solid var(--border);
+      margin:4px 6px 0 0;
+    }
+
+    @media (max-width:800px){
+      .portrait{ margin-top:8px; }
+      .portrait img{ width:180px; height:180px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Mariia Legenkaia</h1>
+
+        <p>
+          PhD (ENS Paris) in statistical physics / computational neuroscience.
+          High-dimensional statistics, latent-factor models, uncertainty-aware pipelines in Python/JAX.
+        </p>
+        <p class="meta" style="margin-top:8px;">
+          Paris • Open to roles: Quant Research / Applied Research (BioAI)
+        </p>
+
+        <div class="links">
+          <a class="btn" href="https://www.linkedin.com/in/legenkaia/">LinkedIn</a>
+          <a class="btn" href="https://github.com/ketokeas">GitHub</a>
+          <a class="btn" href="Legenkaia_CV.pdf">Download CV</a>
+
+          <!-- forces a new row inside the flex container -->
+          <p class="email">Email: legenkai [at] bio [dot] ens [dot] psl [dot] eu</p>
+        </div>
+      </div>
+
+      <!-- Put portrait.jpg in the repo root (same folder as index.html) -->
+      <div class="portrait">
+        <img src="portrait.png" alt="Mariia Legenkaia portrait" />
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Featured Projects</h2>
+
+        <div class="proj">
+          <h3>PCALib — predicting PCA recovery in neural population recordings</h3>
+          <p>
+             A Python library for neural population analysis. It enables you to assess and predict how accurately PCA will recover latent low-dimensional dynamics from neural recordings, given your number of neurons, number of trials, noise levels, and other experimental parameters. It also allows you to extrapolate to larger dataset sizes and to model how PCA accuracy scales.
+          </p>
+          <ul>
+            <li>Random matrix / spiked covariance theory + validation with large-scale simulations</li>
+            <li>Pipeline: fit → extrapolate → predict accuracy; supports realistic noise + heterogeneity</li>
+            <li>Python + JAX; designed for experimental planning</li>
+          </ul>
+          <p class="meta" style="margin-top:8px;">
+            <a href="https://github.com/ketokeas/PCALib">Repo</a> ·
+            <a href="https://doi.org/10.1103/PhysRevE.111.044314">Paper of theoretical part</a>
+          </p>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>About</h2>
+        <p style="margin:0;color:var(--muted);">
+          I build models and software for extracting signal from noisy high-dimensional data.
+          My background is in random matrix theory, latent factor models, and rigorous validation on simulations and real datasets.
+        </p>
+
+        <h2 style="margin-top:16px;">Publications</h2>
+        <ul>
+          <li><a href="https://doi.org/10.1103/PhysRevE.111.044314">Uncertainties in signal recovery from heterogeneous and convoluted time series with principal component analysis (2025)</a></li>
+        </ul>
+
+        <h2 style="margin-top:16px;">Skills</h2>
+        <div>
+          <span class="pill">High-dimensional statistics</span>
+          <span class="pill">Random matrix theory</span>
+          <span class="pill">Latent factor models</span>
+          <span class="pill">Python</span>
+          <span class="pill">JAX</span>
+          <span class="pill">PyTorch</span>
+        </div>
+
+        <h2 style="margin-top:16px;">Contact</h2>
+        <p style="margin:0;color:var(--muted);">
+          Best way to reach me:
+        </p>
+        <p style="margin:6px 0 0 0;">
+          legenkai [at] bio [dot] ens [dot] psl [dot] eu
+        </p>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Mariia Legenkaia · Hosted on GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
